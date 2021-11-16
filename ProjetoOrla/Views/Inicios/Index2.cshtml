@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProjetoOrla.Models.Inicio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BotaoInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FotoInicio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BotaoInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FotoInicio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InicioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InicioId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InicioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
